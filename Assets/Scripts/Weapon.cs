@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Weapon : Item
 {
-    public int ammoAmount;
-    public int ammoCapacity;
-    public PlayerController playerController;
-    public int weaponId;
+    private int ammoAmount;
+    [SerializeField] private int ammoCapacity;
+    private PlayerController playerController;
     [SerializeField] protected float projectileSpeed;
 
     public abstract override void Use();
@@ -39,17 +36,14 @@ public abstract class Weapon : Item
             Use();
             ammoAmount--; 
         }
-        else
-        {
-        }
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.GetComponent<PlayerController>())
-    //    {
-    //        print("oii");
-    //        other.GetComponent<PlayerController>().PickWeapon(this);
-    //        Destroy(gameObject);
-    //    }
-    //}
+   
+    public int GetAmmoAmount()
+    {
+        return ammoAmount;
+    }
+    protected PlayerController GetPlayerController()
+    {
+        return playerController;
+    }
 }

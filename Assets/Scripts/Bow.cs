@@ -19,18 +19,7 @@ public class Bow : Weapon
     {
         arrow = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Arrow"), spawnPos.position, spawnPos.rotation);
         arrow.GetComponent<Rigidbody>().AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
-        arrow.GetComponent<Arrow>().SetData(playerController, itemData);
+        arrow.GetComponent<Arrow>().SetData(GetPlayerController(), itemData);
     }
 
- 
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.GetComponent<PlayerController>())
-        {
-            print("oii");
-            other.GetComponent<PlayerController>().PickWeapon(this);
-        }
-    }
-    */
 }

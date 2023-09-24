@@ -1,16 +1,14 @@
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class ScoreBoardItem : MonoBehaviourPunCallbacks
 {
-    public TextMeshProUGUI usernameText;
-    public TextMeshProUGUI killsText;
-    public TextMeshProUGUI deathsText;
+    [SerializeField] TextMeshProUGUI usernameText;
+    [SerializeField] TextMeshProUGUI killsText;
+    [SerializeField] TextMeshProUGUI deathsText;
 
     Player player;
 

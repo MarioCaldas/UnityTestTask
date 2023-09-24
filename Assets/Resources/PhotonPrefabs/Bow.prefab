@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7916110863002098188}
   - component: {fileID: 6451112811536844960}
   - component: {fileID: 5233126368481740123}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,10 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: e8ad35315d5047c47a05545ca6cdd26b, type: 2}
   itemGameObject: {fileID: 3597548932646029518}
-  ammoAmount: 0
   ammoCapacity: 10
-  playerController: {fileID: 0}
-  weaponId: 0
   projectileSpeed: 3.5
   arrow: {fileID: 919132149155446097, guid: 1cc03f49aec0625498c6b7e3b110369d, type: 3}
   spawnPos: {fileID: 3591755356751372450}

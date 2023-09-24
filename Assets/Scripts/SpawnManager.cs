@@ -11,9 +11,6 @@ public class SpawnManager : MonoBehaviour
 
 	private List<Spawner> spawners = new List<Spawner>();
 
-	[SerializeField] private List<GameObject> itemsToSpawn = new List<GameObject>();
-
-	private int totalObjectsToSpawn = 10;
 
 	void Awake()
 	{
@@ -26,10 +23,7 @@ public class SpawnManager : MonoBehaviour
         {
 			spawners.Add(item.GetComponent<Spawner>());
         }
-
-        //SpawnObjectsWithProportion();
     }
-
 
     public Vector3 GetRandomPointInSphere()
 	{
@@ -39,31 +33,5 @@ public class SpawnManager : MonoBehaviour
 
 		return new Vector3(randomPoint.x, 10, randomPoint.z);
     }
-    /*
-    private void SpawnObjectsWithProportion()
-    {
-        // Calculate how many objects of each type to spawn
-        int objectsPerType = totalObjectsToSpawn / itemsToSpawn.Count;
-
-        // Loop to spawn objects
-        for (int i = 0; i < totalObjectsToSpawn; i++)
-        {
-            // Randomly select an object type based on proportions
-            int randomIndex = Random.Range(0, itemsToSpawn.Count);
-            GameObject objectToSpawn = itemsToSpawn[randomIndex];
-
-            // Instantiate the selected object at the spawn point
-            PhotonNetwork.Instantiate(objectToSpawn, GetRandomPointInSphere(), Quaternion.identity);
-        }
-    }*/
-    /*void SpawnItem()
-    {
-        PV.RPC(nameof(RPC_SpawnItem()), RpcTarget.All);
-    }
-
-    [PunRPC]
-    void RPC_SpawnItem(GameObject item)
-    {
-        Instantiate(objectToSpawn, GetRandomPointInSphere(), Quaternion.identity);
-    }*/
+  
 }

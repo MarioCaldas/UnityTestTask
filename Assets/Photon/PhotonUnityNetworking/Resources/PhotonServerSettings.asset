@@ -53,6 +53,7 @@ MonoBehaviour:
   - DestroyItem
   - TesteRpc
   - GameOverRpc
+  - RPC_DestroyArrow
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0

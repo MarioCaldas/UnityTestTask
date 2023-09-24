@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -26,12 +25,10 @@ public class Launcher : MonoBehaviourPunCallbacks
 	}
 	void Start()
 	{
-		//Debug.Log("Connecting to Master");
 		PhotonNetwork.ConnectUsingSettings();
 	}
 	public override void OnConnectedToMaster()
 	{
-		//Debug.Log("Connected to Master");
 		PhotonNetwork.JoinLobby();
 		PhotonNetwork.AutomaticallySyncScene = true;
 	}
@@ -39,7 +36,6 @@ public class Launcher : MonoBehaviourPunCallbacks
 	public override void OnJoinedLobby()
 	{
 		MenuController.Instance.OpenMenu("title");
-		//Debug.Log("Joined Lobby");
 		PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000");
 	}
 	public void CreateRoom()

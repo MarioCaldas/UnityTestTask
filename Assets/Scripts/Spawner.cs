@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private List<Item> itens;
 
-    private Item currentItem;
+    Item currentItem;
 
     int currentItemIndex = -1;
 
@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnItem()
     {
-       
+       //IF more than 1 item spawn the next
         if (itens.Count <= 1)
         {
             currentItemIndex = Random.Range(0, itens.Count);
@@ -32,11 +32,19 @@ public class Spawner : MonoBehaviour
                 currentItemIndex++;
             else
                 currentItemIndex = 0;
-
         }
 
         if (PV.IsMine)
             PV.RPC(nameof(RPC_SpawnItem), RpcTarget.All, currentItemIndex);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerController>() && currentItem)
+        {
+            other.GetComponent<PlayerController>().PickItem(currentItem);
+
+            PV.RPC(nameof(DestroyItem), RpcTarget.All);
+        }
     }
 
     [PunRPC]
@@ -45,16 +53,7 @@ public class Spawner : MonoBehaviour
         currentItem = Instantiate(itens[teste], transform.position, Quaternion.identity);
         currentItem.transform.parent = transform;
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<PlayerController>() && currentItem)
-        {
-            other.GetComponent<PlayerController>().PickItem(currentItem);
-    
-            PV.RPC(nameof(DestroyItem), RpcTarget.All);
-        }
-    }
+ 
     [PunRPC]
     void DestroyItem()
     {

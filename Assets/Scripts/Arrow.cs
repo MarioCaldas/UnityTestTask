@@ -15,7 +15,6 @@ public class Arrow : MonoBehaviour
     void Awake()
     {
         PV = GetComponent<PhotonView>();
-
     }
 
 
@@ -53,7 +52,8 @@ public class Arrow : MonoBehaviour
             if (collision.gameObject == playerOwner.gameObject)
                 return;
 
-            collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(((WeaponData)itemData).damage);
+            if(!collided)//do damage if its moving
+                collision.gameObject.GetComponent<IDamageable>()?.TakeDamage(((WeaponData)itemData).damage);
 
             PV.RPC(nameof(RPC_ArrowStick), RpcTarget.All);
 
@@ -62,6 +62,10 @@ public class Arrow : MonoBehaviour
 
     }
 
+    private void DestroyArrow()
+    {
+        PV.RPC(nameof(RPC_DestroyArrow), RpcTarget.All);
+    }
 
     [PunRPC]
     void RPC_ArrowStick()
@@ -74,7 +78,8 @@ public class Arrow : MonoBehaviour
     }
 
 
-    private void DestroyArrow()
+    [PunRPC]
+    void RPC_DestroyArrow()
     {
         Destroy(gameObject);
     }

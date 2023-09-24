@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7259449083355660271}
   - component: {fileID: 6726912358534837358}
   - component: {fileID: 3205244408144809769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PistolAmmoItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1069478882487013781}
   - component: {fileID: 1069478882487013780}
   - component: {fileID: 1069478882487013787}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RpgAmmoItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

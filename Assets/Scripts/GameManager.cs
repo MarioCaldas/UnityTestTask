@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     public void GameOver(string playerName)
     {
         PV.RPC(nameof(GameOverRpc), RpcTarget.All, playerName);
-
     }
 
     [PunRPC]

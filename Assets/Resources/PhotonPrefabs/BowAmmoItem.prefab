@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4623508528201628394}
   - component: {fileID: 8777082320481415531}
   - component: {fileID: 643995190465907244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BowAmmoItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

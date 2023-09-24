@@ -1,6 +1,4 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
@@ -37,8 +35,6 @@ public class Rocket : MonoBehaviour
     {
         if (PV.IsMine)
         {
-
-            print("rpg hit");
             if (collision.gameObject == playerOwner.gameObject)
                 return;
 

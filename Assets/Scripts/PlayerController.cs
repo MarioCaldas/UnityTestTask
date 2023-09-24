@@ -1,12 +1,8 @@
 using Photon.Pun;
-using Photon.Realtime;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 {
@@ -39,6 +35,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
 	PlayerManager playerManager;
 
+	bool cursorLocked;
+
 	void Awake()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -65,8 +63,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 			Destroy(ui);
 		}
 
-		/*Cursor.visible = false;
-		Cursor.lockState = CursorLockMode.Locked;*/
+
 
 	}
 
@@ -79,6 +76,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 		Move();
 		Jump();
 
+		//Switch weapons
 		for (int i = 0; i < availableWeapons.Count; i++)
 		{
 			if (Input.GetKeyDown((i + 1).ToString()))
@@ -116,6 +114,22 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 			availableWeapons[itemIndex].TryUse();
 			UpdateAmmoAmountHUD();
 		}
+
+		if (Input.GetKeyDown(KeyCode.C))
+        {
+			if(!cursorLocked)
+            {
+				Cursor.visible = false;
+				Cursor.lockState = CursorLockMode.Locked;
+				cursorLocked = true;
+			}
+			else
+            {
+				Cursor.visible = true;
+				Cursor.lockState = CursorLockMode.None;
+				cursorLocked = false;
+            }
+        }
 
 		if (transform.position.y < -10f) // Die if you fall out of the world
 		{
@@ -239,9 +253,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 			currentHealth = maxHealth;
 
 		UpdateHealthBarHUD();
-
-		print(currentHealth);
     }
+
 	public void ReloadWeapon(AmmoPackData ammoData)
     {
         foreach (Weapon weapon in availableWeapons)
@@ -254,6 +267,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         }
 		UpdateAmmoAmountHUD();
 	}
+
 	public void TakeDamage(float damage)
 	{
 		PV.RPC(nameof(RPC_TakeDamage), PV.Owner, damage);
@@ -276,7 +290,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
 	void UpdateAmmoAmountHUD()
     {
-		ammoAmountText.text = availableWeapons[itemIndex].ammoAmount.ToString();
+		ammoAmountText.text = availableWeapons[itemIndex].GetAmmoAmount().ToString();
 	}
 
 	void UpdateHealthBarHUD()

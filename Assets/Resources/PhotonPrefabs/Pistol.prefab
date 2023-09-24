@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8947832599012935964}
   - component: {fileID: 3880314286731302959}
   - component: {fileID: 1992086217239134166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,13 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: e9ce8d36a22879f49bb998ca2cb3201d, type: 2}
   itemGameObject: {fileID: 8909851167465925740}
-  ammoAmount: 0
   ammoCapacity: 20
-  playerController: {fileID: 0}
-  weaponId: 0
   projectileSpeed: 0
   cam: {fileID: 0}
-  muzzle: {fileID: 8636148414176623205}
   shootAnim: {fileID: 4027134623000648972}
 --- !u!65 &1992086217239134166
 BoxCollider:
@@ -198,10 +194,5 @@ Transform:
 --- !u!111 &4027134623000648972 stripped
 Animation:
   m_CorrespondingSourceObject: {fileID: 6674766373600205751, guid: 65c957d6c1296ee47a05743189e60dcd, type: 3}
-  m_PrefabInstance: {fileID: 7728961175887070907}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8636148414176623205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2061252269651016926, guid: 65c957d6c1296ee47a05743189e60dcd, type: 3}
   m_PrefabInstance: {fileID: 7728961175887070907}
   m_PrefabAsset: {fileID: 0}

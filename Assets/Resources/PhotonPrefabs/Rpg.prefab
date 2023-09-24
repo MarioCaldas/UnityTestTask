@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 177989886146054427}
   - component: {fileID: 825500654463336749}
   - component: {fileID: 438242088529090477}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rpg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,10 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 0d9e9ea74d8f9ac449a65e1ed75249e5, type: 2}
   itemGameObject: {fileID: 2000919624981564328}
-  ammoAmount: 0
   ammoCapacity: 6
-  playerController: {fileID: 0}
-  weaponId: 0
   projectileSpeed: 600
   rocket: {fileID: 1121301604953163773, guid: 7a2e67f8f7d7a094eae25dada1d9cd76, type: 3}
   spawnPos: {fileID: 2541746223969323746}

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
@@ -70,7 +68,7 @@ public class PlayerManager : MonoBehaviour
 
 	public static PlayerManager Find(Player player)
 	{
-		//Get all player managers in hte scene
+		//Get all player managers in the scene
 		return FindObjectsOfType<PlayerManager>().SingleOrDefault(x => x.PV.Owner == player);
 	}
 }

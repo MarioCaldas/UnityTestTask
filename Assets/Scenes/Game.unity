@@ -2092,7 +2092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOverCanvas: {fileID: 1957469142}
   gameOverText: {fileID: 138122166}
-  maxDeathsGameOver: 2
+  maxDeathsGameOver: 10
 --- !u!4 &839609367
 Transform:
   m_ObjectHideFlags: 0
@@ -3658,10 +3658,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereRadius: 35
-  itemsToSpawn:
-  - {fileID: 5120648909147357718, guid: bc0b3a7d1dc43b54586224e6445e2d2a, type: 3}
-  - {fileID: 3708922872722660010, guid: abcf6ee3cd3126740b3b3a6965178640, type: 3}
-  - {fileID: 8954880655973860914, guid: a709f1f211d56e14696f6a0cbd5cc311, type: 3}
 --- !u!135 &2049046508
 SphereCollider:
   m_ObjectHideFlags: 0
