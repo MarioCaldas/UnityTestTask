@@ -109,12 +109,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 			}
 		}
 
+		//Shoot
 		if (Input.GetMouseButtonDown(0))
 		{
 			availableWeapons[itemIndex].TryUse();
 			UpdateAmmoAmountHUD();
 		}
 
+
+		//Lock cursor
 		if (Input.GetKeyDown(KeyCode.C))
         {
 			if(!cursorLocked)
@@ -131,7 +134,8 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             }
         }
 
-		if (transform.position.y < -10f) // Die if you fall out of the world
+		// Die if you fall out of the world
+		if (transform.position.y < -10f) 
 		{
 			Die();
 		}
@@ -211,6 +215,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
 
 	public void PickItem(Item _item)
     {
+		//Check item type
 		if(_item is Weapon)
         {
 			foreach (Weapon item in weapons)
@@ -226,7 +231,7 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         {
 			ReloadWeapon((AmmoPackData)_item.itemData);
 		}
-		else if(_item is HealthPotion)
+		else if(_item is HealthItem)
         {
 			ResetHealth(((HealthItemData)_item.itemData).healthAmount);
         }
@@ -259,7 +264,6 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     {
         foreach (Weapon weapon in availableWeapons)
         {
-			print(weapon.itemData.itemName);
 			if (weapon.itemData.itemName == ammoData.weaponId)
             {
 				weapon.Reload(ammoData.ammoAmount);

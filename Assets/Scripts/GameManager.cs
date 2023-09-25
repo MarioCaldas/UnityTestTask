@@ -38,14 +38,14 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(string playerName)
     {
-        PV.RPC(nameof(GameOverRpc), RpcTarget.All, playerName);
+        PV.RPC(nameof(RPC_GameOver), RpcTarget.All, playerName);
     }
 
     [PunRPC]
-    public void GameOverRpc(string playerName)
+    public void RPC_GameOver(string playerName)
     {
         gameOverCanvas.SetActive(true);
-        gameOverText.text = playerName + " Won"; 
-        Time.timeScale = 0;
+        gameOverText.text = playerName + " Won";
+        PhotonNetwork.LeaveRoom();
     }
 }

@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnItem()
     {
-       //IF more than 1 item spawn the next
+       //IF more than 1 item then spawn the next
         if (itens.Count <= 1)
         {
             currentItemIndex = Random.Range(0, itens.Count);
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
         {
             other.GetComponent<PlayerController>().PickItem(currentItem);
 
-            PV.RPC(nameof(DestroyItem), RpcTarget.All);
+            PV.RPC(nameof(RPC_DestroyItem), RpcTarget.All);
         }
     }
 
@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
     }
  
     [PunRPC]
-    void DestroyItem()
+    void RPC_DestroyItem()
     {
         Destroy(currentItem.gameObject);
 

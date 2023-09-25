@@ -71,7 +71,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PlayerListItem.cs" />
     <Compile Include="Assets\Scripts\IDamageable.cs" />
-    <Compile Include="Assets\Scripts\HealthPotion.cs" />
+    <Compile Include="Assets\Scripts\HealthItem.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\ScoreBoardItem.cs" />
     <Compile Include="Assets\Scripts\Arrow.cs" />

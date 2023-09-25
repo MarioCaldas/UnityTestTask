@@ -10,8 +10,6 @@ public class Rocket : MonoBehaviour
 
     [SerializeField] GameObject explosionVfx;
 
-    Quaternion rot;
-
     ItemData itemData;
 
     void Awake()
